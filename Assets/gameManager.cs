@@ -50,7 +50,7 @@ public class gameManager : MonoBehaviour
             roundNum++;
             RepopulateEnemys();
         }
-
+        Debug.Log(enemies.Count);
         //temp timer code
         timer = timer - Time.deltaTime;
 
