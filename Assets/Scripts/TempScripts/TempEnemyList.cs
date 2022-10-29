@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JackOLanternScript : Tower
+public class TempEnemyList : MonoBehaviour
 {
+
+    public List<GameObject> enemies;
+
     // Start is called before the first frame update
-    protected override void Start()
+    void Start()
     {
-        base.Start();
+        
     }
 
     // Update is called once per frame
-    protected override void Update()
+    void Update()
     {
-        base.Update();
+        
     }
 }
