@@ -99,12 +99,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
-  towerMaxHealth: 1
+  towerMaxHealth: 0.5
   attackCooldown: 0
   range: 1.5
   slider: {fileID: 5850845188601782458}
   sliderLerpSpeed: 0.05
+  futureTargetPositionMultiplier: 0
+  decayMultiplier: 0
+  isTouchingDecayCircle: 0
   timer: 0
+  blastRadius: 2.5
+  damage: 25
 --- !u!1001 &2611002507544086094
 PrefabInstance:
   m_ObjectHideFlags: 0

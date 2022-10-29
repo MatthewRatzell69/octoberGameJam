@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
 
     public GameObject projectilePrefab;
     public float towerMaxHealth;
-    private float towerHealth;
+    protected float towerHealth;
     public float attackCooldown;
     public float range;
 
@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private float decayMultiplier;
 
-    private List<GameObject> enemies;
+    protected List<GameObject> enemies;
     private List<GameObject> decayCircles;
 
     [SerializeField]
