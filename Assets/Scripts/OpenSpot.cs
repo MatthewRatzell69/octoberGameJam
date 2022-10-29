@@ -7,6 +7,10 @@ public class OpenSpot : MonoBehaviour
     //these variables are for all the different towers it could be 
     public GameObject skeleton;
     public GameObject thorns;
+    public GameObject dracula;
+    public GameObject jackOLantern;
+    public GameObject ghost;
+    public GameObject spider;
 
     private GameObject towerPrefabToPlace;
     private GameObject tower;
@@ -40,7 +44,23 @@ public class OpenSpot : MonoBehaviour
                     Debug.Log("Placing Thorns");
                     towerPrefabToPlace = thorns;
                     break;
-                    //need to add all of the other cases for other towers
+                case "DraculaShop":
+                    Debug.Log("Placing Dracula");
+                    towerPrefabToPlace = dracula;
+                    break;
+                case "GhostShop":
+                    Debug.Log("Placing Ghost");
+                    towerPrefabToPlace = ghost;
+                    break;
+                case "JackOLanternShop":
+                    Debug.Log("Placing Jack O Lantern");
+                    towerPrefabToPlace = jackOLantern;
+                    break;
+                case "SpiderShop":
+                    Debug.Log("Placing Spider");
+                    towerPrefabToPlace = spider;
+                    break;
+                //need to add all of the other cases for other towers
                 default:
                     
                     break;
