@@ -26,17 +26,19 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*
         //temp timer code
         timer = timer - Time.deltaTime;
 
         //temporary enemy spawn code
         if(timer <= 0)
         {
+            Debug.Log("Spawning Enemy");
             GameObject temp = Instantiate(enemyTypes[Random.Range(0, numberOfDifferentEnemyTypes)]);
             temp.transform.position = new Vector3(-12f, 4.5f, 0f);
             gameManager.enemies.Add(temp);
             timer = enemySpawnCooldown;
         }
+        */
     }
 }
