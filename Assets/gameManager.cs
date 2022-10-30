@@ -31,72 +31,76 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         enemySpawnCooldown = 2.0f;
         timer = enemySpawnCooldown;
         roundNum = 0;
         enemyNumberInList = 0;
+        shouldSpawnEnemys = false;
 
-        enemiesCopy = enemies;
-        //need to put everything in here for the first round spawning
+        //make sure we call this on start
+        RepopulateEnemys();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if all the enemies are dead
-        if (enemies.Count <= 0)
-        {
-            //increase round count
-            roundNum++;
-            RepopulateEnemys();
-        }
-        Debug.Log(enemies.Count);
+        Debug.Log("Enemy Copy Count:"+enemiesCopy.Count);
         //temp timer code
         timer = timer - Time.deltaTime;
 
+        
+        //make sure we stop spawning when we get to the end of the list, and also reset our count so populate gets called
+        if (enemyNumberInList >= enemiesCopy.Count)
+        {
+            shouldSpawnEnemys = false;
+            enemiesCopy.Clear();
+        }
+        
         //handles the spawning for each round
-        if (timer <= 0 && enemies.Count>0 && shouldSpawnEnemys)
+        if (timer <= 0 && shouldSpawnEnemys)
         {
             Debug.Log("Spawning Enemy");
+
             GameObject temp = Instantiate(enemiesCopy[enemyNumberInList]);
             temp.transform.position = new Vector3(-12f, 4.5f, 0f);
+
+            //make sure its added to the enemy list or it wont get attacked needs to be added after instantiation
             enemies.Add(temp);
+
             timer = enemySpawnCooldown;
-
-            
-
-            //make sure we stop spawning when we get to the end of the list
-            if(enemyNumberInList < enemiesCopy.Count)
-            {
-                shouldSpawnEnemys = false;
-            }
 
             enemyNumberInList++;
         }
 
-        //Debug.Log("Enemies Count:" + enemies.Count);
+        //if all the enemies are dead
+        if (enemies.Count <= 0 && enemiesCopy.Count == 0)
+        {
+            //repopulate the list
+            RepopulateEnemys();
+        }
+
     }
 
     //function that repopulates the list
     void RepopulateEnemys()
     {
+        roundNum++;
+        enemiesCopy.Clear();
         Debug.Log("repopulating list");
         //reset enemy number in list
         enemyNumberInList = 0;
         //also make sure we reset if enemys should be spawned
         shouldSpawnEnemys = true;
 
+        for(int i = 0; i <= roundNum; i++)
+        {
+            enemiesCopy.Add(testEnemy);
+        }
+        
 
-        GameObject temp = Instantiate(testEnemy);
-        temp.transform.position = new Vector3(-12f, 4.5f, 0f);
-        enemies.Add(temp);
-
-
-
-
-
-        //after repopulating the list we have to make sure we set the copy
-        enemiesCopy = enemies;
+        //make sure enemys is equal to the copy list
+        //enemies == enemiesCopy;
     }
     //function that populates list
 }
