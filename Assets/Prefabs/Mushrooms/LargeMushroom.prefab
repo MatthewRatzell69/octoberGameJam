@@ -313,7 +313,7 @@ MonoBehaviour:
   allEnemies: []
   decayCircle: {fileID: 2179408711121482584, guid: 8bb0f69ad0a908a45ae6b8adca3d80a6, type: 3}
   startingHealth: 150
-  speed: 0.75
+  speed: 25
   collisionRadius: 1
   slider: {fileID: 7264981724094913672}
   sliderLerpSpeed: 0.08

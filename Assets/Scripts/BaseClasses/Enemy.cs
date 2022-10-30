@@ -90,22 +90,21 @@ public class Enemy : MonoBehaviour
         //conditional for when they get to the end of the map
         if(locationOnPath >= enemyPath.Count)
         {
-            //kill the enemy after it does damage to the core
-            gameManager.health--;
+           
 
             //make sure the slider updates before it dies
             
             if (this.name == "SmallMushroom(Clone)")
             {
-                EndCore.GetComponent<CoreScript>().TakeDamage(1);
+                EndCore.GetComponent<CoreScript>().TakeDamage(5);
             }
             else if (this.name == "MediumMushroom(Clone)")
             {
-                EndCore.GetComponent<CoreScript>().TakeDamage(3);
+                EndCore.GetComponent<CoreScript>().TakeDamage(10);
             }
             else if (this.name == "LargeMushroom(Clone)")
             {
-                EndCore.GetComponent<CoreScript>().TakeDamage(5);
+                EndCore.GetComponent<CoreScript>().TakeDamage(15);
             }
             else
             {

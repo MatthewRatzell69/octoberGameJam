@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class gameManager : MonoBehaviour
 
     //bool that determines if enemys should be spawned at the moment
     private bool shouldSpawnEnemys;
+
 
     // Start is called before the first frame update
     void Start()
@@ -190,7 +192,7 @@ public class gameManager : MonoBehaviour
 
     void EndGame()
     {
-
+        SceneManager.LoadScene("EndGameScreen");
     }
 
 }

@@ -24,5 +24,8 @@ public class CoreScript : MonoBehaviour
     public void TakeDamage(int damage)
     {
         slider.value = gameManager.health - damage;
+
+        //make sure we also update the health in the manager 
+        gameManager.health = gameManager.health - damage;
     }
 }
