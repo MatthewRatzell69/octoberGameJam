@@ -173,13 +173,13 @@ public class gameManager : MonoBehaviour
                     Debug.Log("Spawning Small Enemy");
                 }
                 //40% chance
-                else if (randNum > 4 && randNum <= 9)
+                else if (randNum > 4 && randNum <= 8)
                 {
                     enemiesCopy.Add(mediumEnemy);
                     Debug.Log("Spawning Medium Enemy");
                 }
                 //10% chance
-                else if (randNum > 9 && randNum <= 10)
+                else if (randNum > 8 && randNum <= 10)
                 {
                     enemiesCopy.Add(largeEnemy);
                     Debug.Log("Spawning Large Enemy");
