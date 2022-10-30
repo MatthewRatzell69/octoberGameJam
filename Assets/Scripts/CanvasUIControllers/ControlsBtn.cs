@@ -20,4 +20,9 @@ public class ControlsBtn : MonoBehaviour
     {
         SceneManager.LoadScene("ExperimentScene");
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("ExperimentScene");
+    }
 }

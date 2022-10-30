@@ -17,7 +17,7 @@ public class gameManager : MonoBehaviour
     //used for remembering rounds and gold and health
     public static int roundNum;
     public static int gold = 100;
-    public static int health = 5;
+    public static int health = 50;
 
 
     //our 3 enemy types
