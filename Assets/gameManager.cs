@@ -15,7 +15,7 @@ public class gameManager : MonoBehaviour
 
     //used for remembering rounds and gold and health
     public static int roundNum;
-    public static int gold = 1000;
+    public static int gold = 100;
     public static int health = 50;
 
 
@@ -39,7 +39,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
 
-        enemySpawnCooldown = 2.0f;
+        enemySpawnCooldown = 2f;
         timer = enemySpawnCooldown;
         roundNum = 0;
         enemyNumberInList = 0;
@@ -65,16 +65,12 @@ public class gameManager : MonoBehaviour
         //handles the spawning for each round
         if (timer <= 0 && shouldSpawnEnemys)
         {
-            
-
-            GameObject temp = Instantiate(enemiesCopy[enemyNumberInList]);
-            temp.transform.position = new Vector3(-12f, 4.5f, 0f);
-
+       
+            GameObject enemyToSpawn = Instantiate(enemiesCopy[enemyNumberInList]);
+            enemyToSpawn.transform.position = new Vector3(-12f, 4.5f, 0f);
             //make sure its added to the enemy list or it wont get attacked needs to be added after instantiation
-            enemies.Add(temp);
-
+            enemies.Add(enemyToSpawn);
             timer = enemySpawnCooldown;
-
             enemyNumberInList++;
         }
 
@@ -83,6 +79,14 @@ public class gameManager : MonoBehaviour
         {
             //repopulate the list
             RepopulateEnemys();
+        }
+
+
+        //lost condition
+        if (health <= 0)
+        {
+            EndGame();
+            Debug.Log("Game Over");
         }
 
     }
@@ -98,7 +102,56 @@ public class gameManager : MonoBehaviour
         //also make sure we reset if enemys should be spawned
         shouldSpawnEnemys = true;
 
-        for(int i = 0; i <= (roundNum*2); i++)
+        //round 1
+        if(roundNum == 1)
+        {
+            enemiesCopy.Add(smallEnemy);
+            enemiesCopy.Add(smallEnemy);
+        }
+        //round 2
+        else if (roundNum == 2)
+        {
+            enemiesCopy.Add(smallEnemy);
+            enemiesCopy.Add(smallEnemy);
+            enemiesCopy.Add(mediumEnemy);
+        }
+        //rounds 3-9
+        else if (roundNum >2 && roundNum <10 )
+        {
+            for (int i = 0; i <= (roundNum * 2); i++)
+            {
+                //grab a number 1-3
+                int randNum = Random.Range(0, 10);
+
+                //50% chance
+                if (randNum <= 4)
+                {
+                    enemiesCopy.Add(smallEnemy);
+                    Debug.Log("Spawning Small Enemy");
+                }
+                //30% chance
+                else if (randNum > 4 && randNum <= 8)
+                {
+                    enemiesCopy.Add(mediumEnemy);
+                    Debug.Log("Spawning Medium Enemy");
+                }
+                else
+                {
+                    Debug.Log("This shouldnt fire, but if you see this message, make sure you didnt miss a number");
+                }
+
+            }
+        }
+        //on round ten 1 large enemy
+        else if(roundNum == 10)
+        {
+            enemiesCopy.Add(mediumEnemy);
+            enemiesCopy.Add(mediumEnemy);
+            enemiesCopy.Add(mediumEnemy);
+            enemiesCopy.Add(largeEnemy);
+        }
+        //past round 10 non-random distribution
+        else
         {
             //grab a number 1-3
             int randNum = Random.Range(0, 10);
@@ -109,14 +162,14 @@ public class gameManager : MonoBehaviour
                 enemiesCopy.Add(smallEnemy);
                 Debug.Log("Spawning Small Enemy");
             }
-            //30% chance
-            else if(randNum>4 && randNum <= 8)
+            //40% chance
+            else if (randNum > 4 && randNum <= 9)
             {
                 enemiesCopy.Add(mediumEnemy);
                 Debug.Log("Spawning Medium Enemy");
             }
-            //20% chance
-            else if (randNum > 8 && randNum <= 10)
+            //10% chance
+            else if (randNum > 9 && randNum <= 10)
             {
                 enemiesCopy.Add(largeEnemy);
                 Debug.Log("Spawning Large Enemy");
@@ -125,10 +178,18 @@ public class gameManager : MonoBehaviour
             {
                 Debug.Log("This shouldnt fire, but if you see this message, make sure you didnt miss a number");
             }
-            
         }
         
+        //increase the speed at which enemys are spawned each round, but only to a certain point
+        if(timer >= .5f)
+        {
+            timer =- .2f;
+        }
 
+    }
+
+    void EndGame()
+    {
 
     }
 

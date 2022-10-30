@@ -101,4 +101,4 @@ MonoBehaviour:
   enemies: []
   collisionRadius: 0.35
   speed: 15
-  damage: 100
+  damage: 50

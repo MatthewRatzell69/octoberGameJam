@@ -26,6 +26,12 @@ public class Enemy : MonoBehaviour
 
     public Vector3 moveDir;
 
+    //need this to make sure we dont increase speed every frame and only do it once
+    private int lastRound;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +46,23 @@ public class Enemy : MonoBehaviour
         slider.maxValue = startingHealth;
         health = startingHealth;
 
+        lastRound = gameManager.roundNum -1;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (lastRound < gameManager.roundNum)
+        {
+            //increase speeds of enemys based on the rounds
+            speed = speed +.1f;
+            //make sure we iterate the lastRound or its going to keep going
+            lastRound = gameManager.roundNum;
+        }
+
+        
+
         if (locationOnPath <= enemyPath.Count - 1)
         {
             //calculate move direction
@@ -129,11 +147,11 @@ public class Enemy : MonoBehaviour
         //conditionals to determine gold amount received
         if (this.name == "SmallMushroom(Clone)")
         {
-            gameManager.gold += 25;
+            gameManager.gold += 50;
         }
         else if (this.name == "MediumMushroom(Clone)")
         {
-            gameManager.gold += 50;
+            gameManager.gold += 75;
         }
         else if (this.name == "LargeMushroom(Clone)")
         {

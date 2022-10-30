@@ -37,35 +37,67 @@ public class OpenSpot : MonoBehaviour
             switch (gameManager.monsterSelected)
             {
                 case "SkeletonShop":
-                    Debug.Log("Placing Skeleton");
-                    towerPrefabToPlace = skeleton;
-                    gameManager.gold -=25;
+                    if (gameManager.gold >= 25)
+                    {
+                        Debug.Log("Placing Skeleton");
+                        towerPrefabToPlace = skeleton;
+                        gameManager.gold -= 25;
+
+                        tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+                    }  
                     break;
                     //thorns case may get removed but should stay in
                 case "PotionShop":
-                    Debug.Log("Placing Potion");
-                    towerPrefabToPlace = potion;
-                    gameManager.gold -=50;
+                    if (gameManager.gold >= 50)
+                    {
+                        Debug.Log("Placing Potion");
+                        towerPrefabToPlace = potion;
+                        gameManager.gold -= 50;
+
+                        tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+                    }
                     break;
                 case "DraculaShop":
-                    Debug.Log("Placing Dracula");
-                    towerPrefabToPlace = dracula;
-                    gameManager.gold -=100;
+                    if (gameManager.gold >= 100)
+                    {
+                        Debug.Log("Placing Dracula");
+                        towerPrefabToPlace = dracula;
+                        gameManager.gold -= 100;
+
+                        tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+                    }
                     break;
                 case "GhostShop":
-                    Debug.Log("Placing Ghost");
-                    towerPrefabToPlace = ghost;
-                    gameManager.gold -=75;
+                    if (gameManager.gold >= 75)
+                    {
+                        Debug.Log("Placing Ghost");
+                        towerPrefabToPlace = ghost;
+                        gameManager.gold -= 75;
+
+                        tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+                    }
                     break;
                 case "JackOLanternShop":
-                    Debug.Log("Placing Jack O Lantern");
-                    towerPrefabToPlace = jackOLantern;
-                    gameManager.gold -=150;
+                    if (gameManager.gold >= 150)
+                    {
+                        Debug.Log("Placing Jack O Lantern");
+                        towerPrefabToPlace = jackOLantern;
+                        gameManager.gold -= 150;
+
+                        
+                        tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+                    }     
                     break;
                 case "SpiderShop":
-                    Debug.Log("Placing Spider");
-                    towerPrefabToPlace = spider;
-                    gameManager.gold -=200;
+                    if(gameManager.gold >= 200)
+                    {
+                        Debug.Log("Placing Spider");
+                        towerPrefabToPlace = spider;
+                        gameManager.gold -= 200;
+
+                        
+                        tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+                    }
                     break;
                 //need to add all of the other cases for other towers
                 default:
@@ -75,8 +107,7 @@ public class OpenSpot : MonoBehaviour
 
             //turn off the open spaces sprite
             gameObject.GetComponent<SpriteRenderer>().sprite=null;
-            //if monster can be placed, place it on this spot 
-            tower = Instantiate(towerPrefabToPlace, transform.position, Quaternion.identity);
+            
  
 
             
