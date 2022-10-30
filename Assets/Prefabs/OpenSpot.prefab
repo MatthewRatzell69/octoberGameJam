@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 6317492734652708848, guid: 08ded782a8daaa14f8815a0fbbb5e19f, type: 3}
-  thorns: {fileID: 6033255557342183049, guid: 1b3203e96ff239c498f4efa1f259556e, type: 3}
+  potion: {fileID: 6033255557342183049, guid: 1b3203e96ff239c498f4efa1f259556e, type: 3}
   dracula: {fileID: 5448699364253285363, guid: 4614f4e28b2cbfe4faa60ab3449c0fd8, type: 3}
   jackOLantern: {fileID: 4856942497775759956, guid: 0c34f03eeebe5044d9392e8575af27fc, type: 3}
   ghost: {fileID: 9162487570621692504, guid: 20995cdf5243894408e8104cde1a2765, type: 3}
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 6317492734652708848, guid: 08ded782a8daaa14f8815a0fbbb5e19f, type: 3}
-  thorns: {fileID: 6033255557342183049, guid: 1b3203e96ff239c498f4efa1f259556e, type: 3}
+  potion: {fileID: 0}
   dracula: {fileID: 5448699364253285363, guid: 4614f4e28b2cbfe4faa60ab3449c0fd8, type: 3}
   jackOLantern: {fileID: 4856942497775759956, guid: 0c34f03eeebe5044d9392e8575af27fc, type: 3}
   ghost: {fileID: 9162487570621692504, guid: 20995cdf5243894408e8104cde1a2765, type: 3}

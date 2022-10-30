@@ -6,7 +6,7 @@ public class OpenSpot : MonoBehaviour
 {
     //these variables are for all the different towers it could be 
     public GameObject skeleton;
-    public GameObject thorns;
+    public GameObject potion;
     public GameObject dracula;
     public GameObject jackOLantern;
     public GameObject ghost;
@@ -42,25 +42,25 @@ public class OpenSpot : MonoBehaviour
                     gameManager.gold -=25;
                     break;
                     //thorns case may get removed but should stay in
-                case "ThornsShop":
-                    Debug.Log("Placing Thorns");
-                    towerPrefabToPlace = thorns;
-                    gameManager.gold -=25;
+                case "PotionShop":
+                    Debug.Log("Placing Potion");
+                    towerPrefabToPlace = potion;
+                    gameManager.gold -=50;
                     break;
                 case "DraculaShop":
                     Debug.Log("Placing Dracula");
                     towerPrefabToPlace = dracula;
-                    gameManager.gold -=50;
+                    gameManager.gold -=100;
                     break;
                 case "GhostShop":
                     Debug.Log("Placing Ghost");
                     towerPrefabToPlace = ghost;
-                    gameManager.gold -=100;
+                    gameManager.gold -=75;
                     break;
                 case "JackOLanternShop":
                     Debug.Log("Placing Jack O Lantern");
                     towerPrefabToPlace = jackOLantern;
-                    gameManager.gold -=100;
+                    gameManager.gold -=150;
                     break;
                 case "SpiderShop":
                     Debug.Log("Placing Spider");
