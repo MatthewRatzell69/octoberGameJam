@@ -92,20 +92,44 @@ public class gameManager : MonoBehaviour
     {
         roundNum++;
         enemiesCopy.Clear();
-        Debug.Log("repopulating list");
+        //Debug.Log("repopulating list");
         //reset enemy number in list
         enemyNumberInList = 0;
         //also make sure we reset if enemys should be spawned
         shouldSpawnEnemys = true;
 
-        for(int i = 0; i <= roundNum; i++)
+        for(int i = 0; i <= (roundNum*2); i++)
         {
-            enemiesCopy.Add(smallEnemy);
+            //grab a number 1-3
+            int randNum = Random.Range(0, 10);
+
+            //50% chance
+            if (randNum <= 4)
+            {
+                enemiesCopy.Add(smallEnemy);
+                Debug.Log("Spawning Small Enemy");
+            }
+            //30% chance
+            else if(randNum>4 && randNum <= 8)
+            {
+                enemiesCopy.Add(mediumEnemy);
+                Debug.Log("Spawning Medium Enemy");
+            }
+            //20% chance
+            else if (randNum > 8 && randNum <= 10)
+            {
+                enemiesCopy.Add(largeEnemy);
+                Debug.Log("Spawning Large Enemy");
+            }
+            else
+            {
+                Debug.Log("This shouldnt fire, but if you see this message, make sure you didnt miss a number");
+            }
+            
         }
         
 
-        //make sure enemys is equal to the copy list
-        //enemies == enemiesCopy;
+
     }
-    //function that populates list
+
 }
