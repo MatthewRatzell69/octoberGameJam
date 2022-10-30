@@ -27,9 +27,17 @@ public class ProjectileMovement : MonoBehaviour
         //check for collision against the enemies
         for(int i = 0; i < enemies.Count; i++)
         {
-            if (Vector2.Distance(transform.position, enemies[i].transform.position) < collisionRadius)
+            if (Vector2.Distance(transform.position, enemies[i].transform.position) < enemies[i].GetComponent<Enemy>().collisionRadius)
             {
                 enemies[i].GetComponent<Enemy>().TakeDamage(damage);
+
+                //if this projectile is one thats in the "slow" layer, slow the enemy down
+                if(gameObject.layer == 6)
+                {
+                    enemies[i].GetComponent<Enemy>().speed = enemies[i].GetComponent<Enemy>().speed / 1.5f;
+                    Debug.Log(enemies[i].GetComponent<Enemy>().speed);
+                }
+
                 Destroy(gameObject);
             }
         }

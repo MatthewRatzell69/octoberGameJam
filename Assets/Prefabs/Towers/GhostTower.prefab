@@ -108,6 +108,8 @@ MonoBehaviour:
   decayMultiplier: 0
   isTouchingDecayCircle: 0
   timer: 0
+  potionDecayParticles: {fileID: 9147306157580034813, guid: 0856b210d5a0ea446b470349de61475d, type: 3}
+  potionDecayObject: {fileID: 5029432702732721079, guid: 3883f6691e6749148b654719df3ac68b, type: 3}
 --- !u!1001 &5065852770761236915
 PrefabInstance:
   m_ObjectHideFlags: 0

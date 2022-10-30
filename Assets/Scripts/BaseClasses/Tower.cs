@@ -30,6 +30,8 @@ public class Tower : MonoBehaviour
     [SerializeField]
     private float timer;
 
+    protected float originalXScale;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -40,6 +42,7 @@ public class Tower : MonoBehaviour
         
         enemies = gameManager.enemies;
         decayCircles = gameManager.decayCircles;
+        originalXScale = transform.localScale.x;
 
     }
 
@@ -86,6 +89,18 @@ public class Tower : MonoBehaviour
         if(towerHealth <= 0)
         {
             Die(0.05f);
+        }
+
+        //flip the sprite depending on what side the nearest target is on
+        if(targetedEnemy != null && targetedEnemy.transform.position.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(originalXScale * -1f, transform.localScale.y, transform.localScale.z);
+            Debug.Log("flipped");
+        }
+
+        if(targetedEnemy != null && targetedEnemy.transform.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(originalXScale, transform.localScale.y, transform.localScale.z);
         }
 
     }

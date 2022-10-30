@@ -10,9 +10,14 @@ public class DecayCircle : MonoBehaviour
 
     private float timer;
 
+    public ParticleSystem decayParticlesPrefab;
+    ParticleSystem decayMushroomParticles;
+
     private void Start()
     {
         timer = lifeTime;
+        decayMushroomParticles = Instantiate(decayParticlesPrefab);
+        decayMushroomParticles.transform.position = transform.position;
     }
 
     private void Update()
@@ -22,6 +27,7 @@ public class DecayCircle : MonoBehaviour
         if(timer <= 0)
         {
             gameManager.decayCircles.Remove(gameObject);
+            decayMushroomParticles.Stop();
             Destroy(gameObject);
         }
 

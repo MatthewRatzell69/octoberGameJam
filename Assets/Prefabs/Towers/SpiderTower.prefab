@@ -101,10 +101,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7896162457272558741, guid: bebc8382ee5ffec4ebec5a4dd3952a29, type: 3}
   towerMaxHealth: 30
   attackCooldown: 0.5
-  range: 15
+  range: 7.5
   slider: {fileID: 6348961808109977837}
   sliderLerpSpeed: 0.01
   futureTargetPositionMultiplier: 0.25
+  decayMultiplier: 0
+  isTouchingDecayCircle: 0
   timer: 0
 --- !u!1001 &3247745559709263385
 PrefabInstance:

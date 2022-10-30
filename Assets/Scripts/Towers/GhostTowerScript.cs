@@ -14,6 +14,7 @@ public class GhostTowerScript : Tower
     protected override void Update()
     {
         base.Update();
+
     }
 
     protected override void Attack()

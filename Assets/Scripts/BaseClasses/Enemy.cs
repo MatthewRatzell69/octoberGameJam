@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,12 +9,18 @@ public class Enemy : MonoBehaviour
     public List<GameObject> enemyPath;
     public List<GameObject> allEnemies;
     public GameObject decayCircle;
-    public float health;
+    private float health;
+    public float startingHealth;
     public float speed;
+
+    public float collisionRadius;
+
+    public Slider slider;
+    public float sliderLerpSpeed;
 
     public GameObject EndCore;
 
-
+    private float originalXScale;
 
     private int locationOnPath = 0;
 
@@ -27,6 +34,11 @@ public class Enemy : MonoBehaviour
         allEnemies = gameManager.enemies;
 
         EndCore = GameObject.Find("Core");
+
+        originalXScale = transform.localScale.x;
+
+        slider.maxValue = startingHealth;
+        health = startingHealth;
 
     }
 
@@ -49,6 +61,8 @@ public class Enemy : MonoBehaviour
                 locationOnPath++;
             }
         }
+
+        SetHealthSlider(health, startingHealth);
 
         if(health == 0)
         {
@@ -82,6 +96,19 @@ public class Enemy : MonoBehaviour
             
             Die();
         }
+
+        //flip the sprite depending on what the moveDir.x value is
+        if (moveDir.x >= 0)
+        {
+            transform.localScale = new Vector3(originalXScale * -1f, transform.localScale.y, transform.localScale.z);
+            Debug.Log("flipped");
+        }
+
+        if (moveDir.x < 0)
+        {
+            transform.localScale = new Vector3(originalXScale, transform.localScale.y, transform.localScale.z);
+        }
+
     }
 
 
@@ -117,12 +144,16 @@ public class Enemy : MonoBehaviour
             EndCore.GetComponent<CoreScript>().TakeDamage(1);
         }
 
-
         GameObject dCircle = Instantiate(decayCircle);
         dCircle.transform.position = transform.position;
         gameManager.decayCircles.Add(dCircle);
         allEnemies.Remove(gameObject);
         Destroy(gameObject);
+    }
+
+    public void SetHealthSlider(float currentHealth, float maxHealth)
+    {
+        slider.value = Mathf.Lerp(slider.value, currentHealth, sliderLerpSpeed);
     }
 
 }

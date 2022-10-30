@@ -22,5 +22,16 @@ public class SkeletonTowerScript : Tower
         projectile.transform.position = transform.position;
         Vector3 targetPosition = targetedEnemy.transform.position + (targetedEnemy.GetComponent<Enemy>().moveDir * futureTargetPositionMultiplier);
         projectile.GetComponent<ProjectileMovement>().moveDirection = Vector3.Normalize(targetPosition - transform.position);
+
+        //set the skeleton's animation to throw briefly
+        GetComponent<Animator>().SetBool("throw", true);
+
+        Invoke("SetAnimatorBool", 0.25f);
+
+    }
+
+    private void SetAnimatorBool()
+    {
+        GetComponent<Animator>().SetBool("throw", false);
     }
 }

@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.15686275, a: 1}
+  m_Color: {r: 0.6509804, g: 0.23529412, b: 0.023529412, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,3 +100,4 @@ MonoBehaviour:
   damageRadius: 1.5
   decayMultiplier: 2
   lifeTime: 5
+  decayParticlesPrefab: {fileID: 5348349728285362891, guid: 8690df912104eaf4cbf713433bedb5f7, type: 3}
