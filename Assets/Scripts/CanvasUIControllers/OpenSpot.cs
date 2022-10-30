@@ -15,6 +15,7 @@ public class OpenSpot : MonoBehaviour
     private GameObject towerPrefabToPlace;
     private GameObject tower;
 
+    private Sprite originalSprite;
     private bool CanPlaceTower()
     {
         //if the openspot doesnt have a monster return true
@@ -106,7 +107,7 @@ public class OpenSpot : MonoBehaviour
             }
 
             //turn off the open spaces sprite
-            gameObject.GetComponent<SpriteRenderer>().sprite=null;
+            //gameObject.GetComponent<SpriteRenderer>().sprite=null;
             
  
 
@@ -116,12 +117,22 @@ public class OpenSpot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //get the sprite we need
+        originalSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (CanPlaceTower())
+        {
+            //turn off the open spaces sprite
+            gameObject.GetComponent<SpriteRenderer>().sprite = originalSprite;
+        }
+        else
+        {
+            //turn off the open spaces sprite
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        }
     }
 }
