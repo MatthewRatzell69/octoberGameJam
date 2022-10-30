@@ -160,30 +160,34 @@ public class gameManager : MonoBehaviour
         //past round 10 non-random distribution
         else
         {
-            //grab a number 1-3
-            int randNum = Random.Range(0, 10);
 
-            //50% chance
-            if (randNum <= 4)
+            for (int i = 0; i <= (roundNum * 2); i++)
             {
-                enemiesCopy.Add(smallEnemy);
-                Debug.Log("Spawning Small Enemy");
-            }
-            //40% chance
-            else if (randNum > 4 && randNum <= 9)
-            {
-                enemiesCopy.Add(mediumEnemy);
-                Debug.Log("Spawning Medium Enemy");
-            }
-            //10% chance
-            else if (randNum > 9 && randNum <= 10)
-            {
-                enemiesCopy.Add(largeEnemy);
-                Debug.Log("Spawning Large Enemy");
-            }
-            else
-            {
-                Debug.Log("This shouldnt fire, but if you see this message, make sure you didnt miss a number");
+                //grab a number 1-3
+                int randNum = Random.Range(0, 10);
+
+                //50% chance
+                if (randNum <= 4)
+                {
+                    enemiesCopy.Add(smallEnemy);
+                    Debug.Log("Spawning Small Enemy");
+                }
+                //40% chance
+                else if (randNum > 4 && randNum <= 9)
+                {
+                    enemiesCopy.Add(mediumEnemy);
+                    Debug.Log("Spawning Medium Enemy");
+                }
+                //10% chance
+                else if (randNum > 9 && randNum <= 10)
+                {
+                    enemiesCopy.Add(largeEnemy);
+                    Debug.Log("Spawning Large Enemy");
+                }
+                else
+                {
+                    Debug.Log("This shouldnt fire, but if you see this message, make sure you didnt miss a number");
+                }
             }
         }
         
