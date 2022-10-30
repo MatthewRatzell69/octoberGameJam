@@ -10,7 +10,7 @@ public class CoreScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        slider.maxValue = gameManager.health;
+        slider.maxValue = 50;
         slider.value = slider.maxValue;
     }
 

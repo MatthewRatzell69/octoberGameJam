@@ -9,10 +9,10 @@ public class gameManager : MonoBehaviour
     //the currently selected monster in the shop, right now being preset to the skeleton
     public static string monsterSelected;
 
-    public static List<GameObject> enemies = new List<GameObject>();
-    public static List<GameObject> decayCircles = new List<GameObject>();
+    public static List<GameObject> enemies;// = new List<GameObject>();
+    public static List<GameObject> decayCircles;// = new List<GameObject>();
     //list that can be used along with our timer so that as enemys are removed from the enemies list we still know which ones to spawn in
-    public static List<GameObject> enemiesCopy = new List<GameObject>();
+    public static List<GameObject> enemiesCopy;// = new List<GameObject>();
 
     //used for remembering rounds and gold and health
     public static int roundNum;
@@ -40,12 +40,17 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        enemies = new List<GameObject>();
+        decayCircles = new List<GameObject>();
+        //list that can be used along with our timer so that as enemys are removed from the enemies list we still know which ones to spawn in
+        enemiesCopy = new List<GameObject>();
         enemySpawnCooldown = 2f;
         timer = enemySpawnCooldown;
         roundNum = 0;
         enemyNumberInList = 0;
         shouldSpawnEnemys = false;
+        gold = 100;
+        health = 50;
         //make sure we call this on start
         RepopulateEnemys();
     }
