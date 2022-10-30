@@ -19,7 +19,7 @@ public class Tower : MonoBehaviour
     public float futureTargetPositionMultiplier;
 
     [SerializeField]
-    private float decayMultiplier;
+    protected float decayMultiplier;
 
     protected List<GameObject> enemies;
     private List<GameObject> decayCircles;

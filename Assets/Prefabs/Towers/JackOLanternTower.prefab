@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4947342209657781805}
   - component: {fileID: 6012705206643927954}
   m_Layer: 0
-  m_Name: JackOLantern_3
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7380269967068425718}
+  - {fileID: 6562802713997066278}
+  - {fileID: 8296986937054820071}
+  - {fileID: 724727636620297683}
+  - {fileID: 8927938400868661604}
+  - {fileID: 7475825941628135971}
+  - {fileID: 8720967543106886595}
   m_Father: {fileID: 7909354643883501514}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95,7 +102,7 @@ GameObject:
   - component: {fileID: 724727636620297683}
   - component: {fileID: 2165935651145410319}
   m_Layer: 0
-  m_Name: JackOLantern_0 (1)
+  m_Name: RightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,13 +115,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2473864670237436419}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0.4, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 7
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &2165935651145410319
 SpriteRenderer:
@@ -156,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1389824849, guid: acb6b5126610baf4ab5f701eba42072f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -197,8 +204,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 6
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4363414641040847297
 SpriteRenderer:
@@ -263,7 +270,7 @@ GameObject:
   - component: {fileID: 6562802713997066278}
   - component: {fileID: 281333903681399364}
   m_Layer: 0
-  m_Name: JackOLantern_1
+  m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,8 +288,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 3
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &281333903681399364
 SpriteRenderer:
@@ -347,7 +354,7 @@ GameObject:
   - component: {fileID: 8296986937054820071}
   - component: {fileID: 2811456247052281611}
   m_Layer: 0
-  m_Name: JackOLantern_0
+  m_Name: LeftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -365,8 +372,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 4
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2811456247052281611
 SpriteRenderer:
@@ -408,7 +415,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1389824849, guid: acb6b5126610baf4ab5f701eba42072f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -449,8 +456,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 5
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5582579138396434724
 SpriteRenderer:
@@ -536,13 +543,6 @@ Transform:
   m_Children:
   - {fileID: 5367763503937151734}
   - {fileID: 4947342209657781805}
-  - {fileID: 7380269967068425718}
-  - {fileID: 6562802713997066278}
-  - {fileID: 8296986937054820071}
-  - {fileID: 8927938400868661604}
-  - {fileID: 7475825941628135971}
-  - {fileID: 724727636620297683}
-  - {fileID: 8720967543106886595}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
-  towerMaxHealth: 0.5
+  towerMaxHealth: 1
   attackCooldown: 0
   range: 1.5
   slider: {fileID: 5850845188601782458}
@@ -614,13 +614,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6058589097143896382}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0.328, y: 0.297, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 8
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3390831639817966415
 SpriteRenderer:
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 7380269967068425718}
   - component: {fileID: 5029595233044268982}
   m_Layer: 0
-  m_Name: JackOLantern_2
+  m_Name: Stump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -703,8 +703,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7909354643883501514}
-  m_RootOrder: 2
+  m_Father: {fileID: 4947342209657781805}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5029595233044268982
 SpriteRenderer:
