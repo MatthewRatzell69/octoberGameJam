@@ -231,6 +231,7 @@ MonoBehaviour:
   decayCircle: {fileID: 8649177517361905773, guid: 75122c032eac087418ff90b92e7d6ee7, type: 3}
   health: 30
   speed: 0.75
+  EndCore: {fileID: 0}
   moveDir: {x: 0, y: 0, z: 0}
 --- !u!1 &7340934607450402906
 GameObject:

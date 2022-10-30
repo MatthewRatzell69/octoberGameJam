@@ -39,26 +39,33 @@ public class OpenSpot : MonoBehaviour
                 case "SkeletonShop":
                     Debug.Log("Placing Skeleton");
                     towerPrefabToPlace = skeleton;
+                    gameManager.gold -=25;
                     break;
+                    //thorns case may get removed but should stay in
                 case "ThornsShop":
                     Debug.Log("Placing Thorns");
                     towerPrefabToPlace = thorns;
+                    gameManager.gold -=25;
                     break;
                 case "DraculaShop":
                     Debug.Log("Placing Dracula");
                     towerPrefabToPlace = dracula;
+                    gameManager.gold -=50;
                     break;
                 case "GhostShop":
                     Debug.Log("Placing Ghost");
                     towerPrefabToPlace = ghost;
+                    gameManager.gold -=100;
                     break;
                 case "JackOLanternShop":
                     Debug.Log("Placing Jack O Lantern");
                     towerPrefabToPlace = jackOLantern;
+                    gameManager.gold -=100;
                     break;
                 case "SpiderShop":
                     Debug.Log("Placing Spider");
                     towerPrefabToPlace = spider;
+                    gameManager.gold -=200;
                     break;
                 //need to add all of the other cases for other towers
                 default:

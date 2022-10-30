@@ -13,11 +13,18 @@ public class gameManager : MonoBehaviour
     //list that can be used along with our timer so that as enemys are removed from the enemies list we still know which ones to spawn in
     public static List<GameObject> enemiesCopy = new List<GameObject>();
 
-    //used for remembering rounds and gold
+    //used for remembering rounds and gold and health
     public static int roundNum;
-    public static int gold;
+    public static int gold = 1000;
+    public static int health = 100;
 
-    public GameObject testEnemy;
+
+    //our 3 enemy types
+    public GameObject smallEnemy;
+    public GameObject mediumEnemy;
+    public GameObject largeEnemy;
+
+
     //used for the timer function
     private float timer;
     private float enemySpawnCooldown;
@@ -37,7 +44,6 @@ public class gameManager : MonoBehaviour
         roundNum = 0;
         enemyNumberInList = 0;
         shouldSpawnEnemys = false;
-
         //make sure we call this on start
         RepopulateEnemys();
     }
@@ -45,7 +51,6 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Enemy Copy Count:"+enemiesCopy.Count);
         //temp timer code
         timer = timer - Time.deltaTime;
 
@@ -60,7 +65,7 @@ public class gameManager : MonoBehaviour
         //handles the spawning for each round
         if (timer <= 0 && shouldSpawnEnemys)
         {
-            Debug.Log("Spawning Enemy");
+            
 
             GameObject temp = Instantiate(enemiesCopy[enemyNumberInList]);
             temp.transform.position = new Vector3(-12f, 4.5f, 0f);
@@ -95,7 +100,7 @@ public class gameManager : MonoBehaviour
 
         for(int i = 0; i <= roundNum; i++)
         {
-            enemiesCopy.Add(testEnemy);
+            enemiesCopy.Add(smallEnemy);
         }
         
 
