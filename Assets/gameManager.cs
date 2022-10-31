@@ -61,33 +61,7 @@ public class gameManager : MonoBehaviour
         //temp timer code
         timer = timer - Time.deltaTime;
 
-        
-        //make sure we stop spawning when we get to the end of the list, and also reset our count so populate gets called
-        if (enemyNumberInList >= enemiesCopy.Count)
-        {
-            shouldSpawnEnemys = false;
-            enemiesCopy.Clear();
-        }
-        
-        //handles the spawning for each round
-        if (timer <= 0 && shouldSpawnEnemys)
-        {
-       
-            GameObject enemyToSpawn = Instantiate(enemiesCopy[enemyNumberInList]);
-            enemyToSpawn.transform.position = new Vector3(-12f, 4.5f, 0f);
-            //make sure its added to the enemy list or it wont get attacked needs to be added after instantiation
-            enemies.Add(enemyToSpawn);
-            timer = enemySpawnCooldown;
-            enemyNumberInList++;
-        }
-
-        //if all the enemies are dead
-        if (enemies.Count <= 0 && enemiesCopy.Count == 0)
-        {
-            //repopulate the list
-            RepopulateEnemys();
-        }
-
+        SpawnManager(timer);
 
         //lost condition
         if (health <= 0)
@@ -199,6 +173,35 @@ public class gameManager : MonoBehaviour
 
     }
 
+    void SpawnManager(float time)
+    {
+
+        //make sure we stop spawning when we get to the end of the list, and also reset our count so populate gets called
+        if (enemyNumberInList >= enemiesCopy.Count)
+        {
+            shouldSpawnEnemys = false;
+            enemiesCopy.Clear();
+        }
+
+        //handles the spawning for each round
+        if (timer <= 0 && shouldSpawnEnemys)
+        {
+
+            GameObject enemyToSpawn = Instantiate(enemiesCopy[enemyNumberInList]);
+            enemyToSpawn.transform.position = new Vector3(-12f, 4.5f, 0f);
+            //make sure its added to the enemy list or it wont get attacked needs to be added after instantiation
+            enemies.Add(enemyToSpawn);
+            timer = enemySpawnCooldown;
+            enemyNumberInList++;
+        }
+
+        //if all the enemies are dead
+        if (enemies.Count <= 0 && enemiesCopy.Count == 0)
+        {
+            //repopulate the list
+            RepopulateEnemys();
+        }
+    }
     void EndGame()
     {
         SceneManager.LoadScene("EndGameScreen");

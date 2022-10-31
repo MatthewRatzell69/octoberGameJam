@@ -50,8 +50,10 @@ public class Tower : MonoBehaviour
     protected virtual void Update()
     {
         timer = timer - Time.deltaTime;
+
         isTouchingDecayCircle = false;
 
+        //iterate and see if there are any enemys in the enemies list from the gamemanager
         for(int i = 0; i < enemies.Count; i++)
         {
             if(Vector2.Distance(enemies[i].transform.position, transform.position) < range && timer <= 0)
@@ -62,6 +64,7 @@ public class Tower : MonoBehaviour
             }
         }
 
+        //iterate and see if we are hitting any of the decay circles
         for(int i = 0; i < decayCircles.Count; i++)
         {
 
@@ -80,6 +83,7 @@ public class Tower : MonoBehaviour
             decayMultiplier = 1.0f;
         }
 
+        //make sure we update out tower health based on decay
         towerHealth = towerHealth - (decayMultiplier * Time.deltaTime);
 
         //update the tower's slider
@@ -95,7 +99,7 @@ public class Tower : MonoBehaviour
         if(targetedEnemy != null && targetedEnemy.transform.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(originalXScale * -1f, transform.localScale.y, transform.localScale.z);
-            Debug.Log("flipped");
+           // Debug.Log("flipped");
         }
 
         if(targetedEnemy != null && targetedEnemy.transform.position.x > transform.position.x)

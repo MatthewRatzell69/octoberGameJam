@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (lastRound < gameManager.roundNum)
         {
             //increase speeds of enemys based on the rounds
@@ -62,7 +63,7 @@ public class Enemy : MonoBehaviour
         }
 
         
-
+        //if they are not on the last path point
         if (locationOnPath <= enemyPath.Count - 1)
         {
             //calculate move direction
@@ -118,7 +119,7 @@ public class Enemy : MonoBehaviour
         if (moveDir.x >= 0)
         {
             transform.localScale = new Vector3(originalXScale * -1f, transform.localScale.y, transform.localScale.z);
-            Debug.Log("flipped");
+           // Debug.Log("flipped");
         }
 
         if (moveDir.x < 0)
